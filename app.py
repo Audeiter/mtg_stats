@@ -47,7 +47,7 @@ def get_data():
     df_decks = pd.DataFrame(res_decks.data)
     
     # Busca Histórico (View)
-    res_history = supabase.table("view_full_history").select("*").order("date", desc=True).limit(2000).execute()
+    res_history = supabase.table("view_full_history").select("*").order("date", desc=True).limit(10000).execute()
     df_history = pd.DataFrame(res_history.data)
     
     return df_players, df_decks, df_history
@@ -258,4 +258,5 @@ elif menu == "➕ Registrar Partida":
 
 # Rodapé
 st.markdown("---")
+
 st.caption("Desenvolvido com Python, Streamlit e Supabase 🚀")
